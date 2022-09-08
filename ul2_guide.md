@@ -79,7 +79,12 @@ pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases
 
 ### Run JAX UL2 Converter
 
-First we copy `jax_t5_ckpt_convert.py` and `ul2_config.template` to `examples/pytorch/t5/utils/`. In `FasterTransformer/build` directory, we run following command  insdie conversion container to convert the UL2 JAX checkpoint 
+First we install zarr
+```
+pip install zarr
+```
+
+We copy `jax_t5_ckpt_convert.py` and `ul2_config.template` from 'ul2-inference/converter/' to `examples/pytorch/t5/utils/`. In `FasterTransformer/build` directory, we run following command  insdie conversion container to convert the UL2 JAX checkpoint 
 
 ```
 python3 ../examples/pytorch/t5/utils/jax_t5_ckpt_convert.py /models/ul2-xsum /models/ul2_ft --tensor-parallelism 2
