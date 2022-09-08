@@ -90,7 +90,7 @@ python3 ../examples/pytorch/t5/utils/jax_t5_ckpt_convert.py /models/ul2-xsum /mo
 
 To test the FT model, download the ul2 model from [Hugging Face](https://huggingface.co/google/ul2/tree/main) and copy it to `/models/ul2`. We can then run the following scripts
 ```
-mpirun -n 2 python3 ../examples/pytorch/t5/summarization.py --ft_model_location /models/ul2_ft --hf_model_location /models/ul2 --test_ft --data_type bf16 --cache_path /tmp/cache --tensor_para_size 2 ----pipeline_para_size 2
+mpirun -n 2 python3 ../examples/pytorch/t5/summarization.py --ft_model_location /models/ul2_ft --hf_model_location /models/ul2 --test_ft --data_type bf16 --cache_path /tmp/cache --tensor_para_size 2
 ```
 
 ## Run Serving on Single Node
