@@ -165,10 +165,10 @@ Then starting the triton server
 tritonserver --model-repository=/models/triton_model
 ```
 
-Before sending inference request, set up the preprocessing dependencies for the client. And modify [summarization.py](https://github.com/triton-inference-server/fastertransformer_backend/blob/main/tools/t5_utils/summarization.py) to change the model name to ul2 per our model structure. Run `summarization.py` to send inference request to Triton server. 
+Open a new console/bash session in the same container. Before sending the inference request, set up the preprocessing dependencies for the client. Copy [summarization.py](https://github.com/mengdong/ul2-inference/blob/main/client-side/summarization.py) to your current working directory. Run `summarization.py` to send inference request to Triton server. 
 ```
 pip install -r ../examples/pytorch/t5/requirement.txt
-python3 /fastertransformer_backend/tools/t5_utils/summarization.py --ft_model_location /models/ul2_ft/2-gpu --hf_model_location /models/ul2  --test_ft --data_type=bf16 --cache_path /tmp/cache
+python3 summarization.py --ft_model_location /models/ul2_ft/2-gpu --hf_model_location /models/ul2  --test_ft --data_type=bf16 --cache_path /tmp/cache
 ```
 
 The results would be like
